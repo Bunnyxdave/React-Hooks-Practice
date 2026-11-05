@@ -2,13 +2,23 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  
+  const [Name, setName] = useState("");
+  const [newValue, setNewValue] = useState("")
   return (
     <div>
-      <h1>counter: </h1>
-      <button onClick={()=>{setCount(count-1)}}>--</button>
-      {count} <button onClick={()=>{setCount(count+1);}}>++</button>
+      <input
+      
+        onChange={(event) => {
+          let newValue = event.target.value;
+          setNewValue(newValue)
+        }}
+        placeholder="enter the display name"
+      />
+      <button onClick={()=>{setName(newValue);}}>
+        enter
+      </button>
+      <br></br>
+      {Name}
     </div>
   );
 }
