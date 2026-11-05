@@ -1,16 +1,21 @@
-# React + Vite
+# React Hooks Practice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React Hooks are functions that let function components use React features such as state, context, refs, and effects. Hook names begin with `use`.
 
-Currently, two official plugins are available:
+## Ten React Hooks
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. **`useState`** — Adds local state to a component and provides a setter to update it.
+2. **`useEffect`** — Synchronizes a component with external systems, such as APIs, subscriptions, or the browser DOM.
+3. **`useContext`** — Reads a value from a context provider without passing props through every level.
+4. **`useRef`** — Keeps a mutable value between renders or provides a reference to a DOM element.
+5. **`useReducer`** — Manages state with a reducer function, useful when updates involve more complex logic.
+6. **`useCallback`** — Caches a function between renders until its dependencies change.
+7. **`useMemo`** — Caches a calculated value between renders until its dependencies change.
+8. **`useLayoutEffect`** — Runs an effect after DOM updates but before the browser paints; use it when an update must happen before paint.
+9. **`useImperativeHandle`** — Customizes the values a component exposes through a ref.
+10. **`useDebugValue`** — Adds a label for a custom Hook in React DevTools.
 
-## React Compiler
+## Rules of Hooks
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Call Hooks at the top level of a function component or custom Hook, not inside loops, conditions, or nested functions.
+- Call Hooks only from React function components or custom Hooks.
