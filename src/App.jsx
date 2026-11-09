@@ -1,24 +1,35 @@
 import { useState } from "react";
 import "./App.css";
+import products from "./products";
 
 function App() {
-  const [Name, setName] = useState("");
-  const [newValue, setNewValue] = useState("")
+  const [search, setSearch] = useState("");
+  const [dispprod, setdispprod] = useState(products);
+
+  const handleSearch = () => {
+    const filteredArr = products.filter((elem) => {
+      return elem.wear.toLowerCase().includes(search.toLowerCase());
+    });
+
+    setdispprod(filteredArr);
+  };
+
   return (
     <div>
       <input
-      
-        onChange={(event) => {
-          let newValue = event.target.value;
-          setNewValue(newValue)
-        }}
-        placeholder="enter the display name"
+        placeholder="enter wear..."
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
-      <button onClick={()=>{setName(newValue);}}>
-        enter
-      </button>
-      <br></br>
-      {Name}
+
+      <button onClick={handleSearch}>search</button>
+
+      {dispprod.map((item) => (
+        <div key={item.id}>
+          {item.name} - {item.wear}
+        </div>
+      ))}
     </div>
   );
 }
